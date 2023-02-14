@@ -1,5 +1,5 @@
 games = ""
-with open('demo_input.txt', 'r') as f:
+with open('input.txt', 'r') as f:
     while True:
         line = f.readline()
         if not line:
@@ -34,9 +34,9 @@ def compare(appendedList):
     for x in range(len(appendedList)):
         if appendedList[x][0] == appendedList[x][1]:
             appendedList[x][1] += 3
-        elif appendedList[x][0] > appendedList[x][1]:
+        elif (appendedList[x][0] == 2 and appendedList[x][1] == 1) or (appendedList[x][0] == 1 and appendedList[x][1] == 3) or (appendedList[x][0] == 3 and appendedList[x][1] == 2):
             appendedList[x][1] += 0
-        elif appendedList[x][0] < appendedList[x][1]:
+        elif (appendedList[x][0] == 1 and appendedList[x][1] == 2) or (appendedList[x][0] == 3 and appendedList[x][1] == 1) or (appendedList[x][0] == 2 and appendedList[x][1] == 3):
             appendedList[x][1] += 6
     return appendedList
 
