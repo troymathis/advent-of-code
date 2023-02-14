@@ -42,5 +42,8 @@ def compare(appendedList):
 
 scores = compare(pickScore(splitInputs(games)))
 
+total = 0
 for x in range(len(scores)):
-    print(scores[x][1])
+    total += scores[x][1]
+
+print(total)
