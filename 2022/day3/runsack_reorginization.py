@@ -15,6 +15,7 @@ def splitRunSacks(runsacks):
 
 elvesSep = splitRunSacks(runsacks)
 finalSplit = []
+
 def splitCompartments(runsacks):
     for i in range(len(elvesSep)):
         length = len(elvesSep[i])
@@ -24,6 +25,7 @@ def splitCompartments(runsacks):
 matchReady = splitCompartments(elvesSep)
 matches = []
 matches2 = []
+
 def findMatch(matchReady):
     for i in range(len(matchReady)):
         for first in matchReady[i][0]:
@@ -36,7 +38,13 @@ def findMatch(matchReady):
     for i in range(len(matches)):
         if matches[i] not in matches2:
             matches2.append(matches[i])
-    str_matches = ','.join(matches2)
-    return str_matches.translate(alphabet_dict)
+    numbers = [alphabet_dict[char] for char in matches2 if char in alphabet_dict]
+    return numbers
 
-print(findMatch(matchReady))
+def total(numbers):
+    sum = 0
+    for i in numbers:
+        sum += i
+    return sum
+
+print(total(findMatch(matchReady)))
