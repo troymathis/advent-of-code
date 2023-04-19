@@ -1,5 +1,5 @@
 runsacks= ""
-with open('demo_input.txt', 'r') as f:
+with open('input.txt', 'r') as f:
     while True:
         line = f.readline()
         if not line:
@@ -29,14 +29,20 @@ matches = []
 def findMatch(matchReady):
     for i in range(len(matchReady)):
         for first in matchReady[i][0]:
+            match_found=False
             for second in matchReady[i][1]:
-                  match_found = False
-                  if first == second:
-                      matches.append(first)
-                      match_found = True
+                  for third in matchReady[i][2]:
+                      match_found=False
+                      if first == second == third:
+                           matches.append(first)
+                           if match_found:
+                               break
+                      else: continue
                       break
-            if match_found:
-                      break
+                  else: continue
+                  break
+            else: continue
+            break
     numbers = [alphabet_dict[char] for char in matches if char in alphabet_dict]
     return numbers
 
@@ -46,4 +52,4 @@ def total(numbers):
         sum += i
     return sum
 
-print(matchReady)
+print(total(findMatch(matchReady)))
