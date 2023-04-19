@@ -9,7 +9,7 @@ C Z
 B X
 B Y
 B Z
-B Z
+B X
 B Z
 C X
 C Y

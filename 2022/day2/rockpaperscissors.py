@@ -69,7 +69,6 @@ def partTwo(appendedList):
     return appendedList
 
 scores = partTwo(pickScore(splitInputs(games)))
-
 total = 0
 for x in range(len(scores)):
     total += scores[x][1]

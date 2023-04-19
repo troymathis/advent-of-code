@@ -5,7 +5,7 @@ with open('input.txt', 'r') as f:
         if not line:
             break
         elves1 += line
-
+         
 def mostCals(elves):
     elves = elves.split("\n\n")
     Sums = []
