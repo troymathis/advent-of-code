@@ -1,5 +1,5 @@
 runsacks= ""
-with open('input.txt', 'r') as f:
+with open('demo_input.txt', 'r') as f:
     while True:
         line = f.readline()
         if not line:
@@ -17,10 +17,11 @@ elvesSep = splitRunSacks(runsacks)
 finalSplit = []
 
 def splitCompartments(runsacks):
-    for i in range(len(elvesSep)):
-        length = len(elvesSep[i])
-        string = elvesSep[i]
-        finalSplit.append([string[:len(string)//2],string[len(string)//2:]])
+    i = 0
+    while (i < len(elvesSep)-2):
+         three = [elvesSep[i], elvesSep[i+1], elvesSep[i+2]]
+         finalSplit.append(three)
+         i += 3
     return finalSplit
 matchReady = splitCompartments(elvesSep)
 matches = []
@@ -45,4 +46,4 @@ def total(numbers):
         sum += i
     return sum
 
-print(total(findMatch(matchReady)))
+print(matchReady)
