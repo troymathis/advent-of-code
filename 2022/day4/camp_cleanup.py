@@ -1,5 +1,5 @@
 pairs = ""
-with open('demo_input.txt', 'r') as f:
+with open('input.txt', 'r') as f:
     while True:
         line = f.readline()
         if not line:
@@ -9,9 +9,12 @@ with open('demo_input.txt', 'r') as f:
 def splitPairs(pairs):
     newPairs = pairs.split("\n")
     draft_pairs = []
+    draft_pairsv2 = []
     for i in range(len(newPairs)):
         draft_pairs.append(newPairs[i].split(","))
-    return draft_pairs
+    for j in range(len(draft_pairs)):
+        draft_pairsv2.append([draft_pairs[j][0].split("-"), draft_pairs[j][1].split("-")])
+    return draft_pairsv2
 
 ranges_final = []
 def findContainers(splitPairs):
@@ -19,8 +22,8 @@ def findContainers(splitPairs):
         ranges = []
         ranges2 = []
         boundary1_2 = int(splitPairs[i][1][0])
-        boundary2_2 = int(splitPairs[i][1][2])
-        boundary2 = int(splitPairs[i][0][2])
+        boundary2_2 = int(splitPairs[i][1][1])
+        boundary2 = int(splitPairs[i][0][1])
         boundary1 = int(splitPairs[i][0][0])
         integer = 0
         integer2 = 0
@@ -33,4 +36,15 @@ def findContainers(splitPairs):
         ranges_final.append([ranges, ranges2])
     return ranges_final
 
-print(findContainers(splitPairs(pairs)))
+def fullyContain(ranges):
+    count = 0
+    for i in range(len(ranges)):
+        stretch1 = ranges[i][0]
+        stretch2 = ranges[i][1]
+        if set(stretch1) >= set(stretch2):
+            count += 1
+        elif set(stretch1) <= set(stretch2):
+            count += 1
+    return count
+
+print(fullyContain(findContainers(splitPairs(pairs))))
