@@ -1,3 +1,5 @@
+
+
 pairs = ""
 with open("input.txt", "r") as f:
     while True:
@@ -54,5 +56,13 @@ def fullyContain(ranges):
             count += 1
     return count
 
+def overlap(ranges):
+    count = 0
+    for i in range(len(ranges)):
+        stretch1 = ranges[i][0]
+        stretch2 = ranges[i][1]
+        if list(set(stretch1) & set(stretch2)):
+            count +=1
+    return count
 
-print(fullyContain(findContainers(splitPairs(pairs))))
+print(overlap(findContainers(splitPairs(pairs))))
