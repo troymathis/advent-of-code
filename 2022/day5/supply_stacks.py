@@ -1,6 +1,6 @@
 import re
 
-with open('demo_input.txt', 'r') as f:
+with open('input.txt', 'r') as f:
     lines = f.readlines()
     lines = [entry for entry in lines]
 
@@ -34,6 +34,11 @@ def moveCrates(moving_lines, obj):
             obj[from_where].remove(temp[k])
         for k in range(len(temp)):
             obj[to_where].insert(0, temp[k])
-    return obj
+    top = ''
+    for i in obj:
+        top += i[0]
+    return top
+
+
 
 print(moveCrates(moving_lines, makeStacks()))
