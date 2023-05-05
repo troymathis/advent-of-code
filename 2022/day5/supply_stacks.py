@@ -29,8 +29,11 @@ def moveCrates(moving_lines, obj):
         how_many = int(moving_values[j][0])
         from_where = int(moving_values[j][1]) - 1
         to_where = int(moving_values[j][2]) - 1
-        crateslice = slice(0,how_many)
-        movedcrates = obj[from_where][crateslice].pop()
-        print(crateslice)
+        temp = obj[from_where][0:how_many]
+        for k in range(len(temp)):
+            obj[from_where].remove(temp[k])
+        for k in range(len(temp)):
+            obj[to_where].insert(0, temp[k])
+    return obj
 
 print(moveCrates(moving_lines, makeStacks()))
