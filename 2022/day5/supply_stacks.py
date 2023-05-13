@@ -30,6 +30,7 @@ def moveCrates(moving_lines, obj):
         from_where = int(moving_values[j][1]) - 1
         to_where = int(moving_values[j][2]) - 1
         temp = obj[from_where][0:how_many]
+        temp.reverse()
         for k in range(len(temp)):
             obj[from_where].remove(temp[k])
         for k in range(len(temp)):
