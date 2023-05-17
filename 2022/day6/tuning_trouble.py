@@ -1,5 +1,5 @@
 data_stream = ""
-with open("demo_input.txt", "r") as f:
+with open("input.txt", "r") as f:
     while True:
         line = f.readline()
         if not line:
@@ -12,6 +12,7 @@ def findSub(new):
     length = len(new)
     for i in range(0, length-3):
         sub = new[i:i+4]
-        print(sub)
+        if len(sub) == len(set(sub)):
+            return i+4
 
 print(findSub(new))
