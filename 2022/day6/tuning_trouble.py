@@ -10,9 +10,9 @@ new = list(data_stream)
 
 def findSub(new):
     length = len(new)
-    for i in range(0, length-3):
-        sub = new[i:i+4]
+    for i in range(0, length-13):
+        sub = new[i:i+14]
         if len(sub) == len(set(sub)):
-            return i+4
+            return i+14
 
 print(findSub(new))
